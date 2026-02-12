@@ -29,7 +29,7 @@ const getDefaultEndDate = () => {
 
 const initialState = {
   loans: [
-    { id: 1, amount: 100000, interestRate: 5.5, loanTerm: 30, termUnit: 'years', startDate: getTodayDate(), additionalCharges: [] }
+    { id: 1, amount: 100000, interestRate: 5.5, loanTerm: 30, termUnit: 'years', startDate: getTodayDate() }
   ],
   nextLoanId: 2,
   investments: [
@@ -50,8 +50,7 @@ function calculatorReducer(state, action) {
           interestRate: 5.5,
           loanTerm: 30,
           termUnit: 'years',
-          startDate: getTodayDate(),
-          additionalCharges: []
+          startDate: getTodayDate()
         }],
         nextLoanId: state.nextLoanId + 1
       };
@@ -138,18 +137,6 @@ export function useCalculator() {
       return sum + payment;
     }, 0);
 
-    // Calculate total additional charges (converted to monthly)
-    const totalAdditionalCharges = state.loans.reduce((sum, loan) => {
-      if (!loan.additionalCharges) return sum;
-      return sum + loan.additionalCharges.reduce((chargeSum, charge) => {
-        const monthlyAmount = charge.frequency === 'yearly' ? charge.amount / 12 : charge.amount;
-        return chargeSum + monthlyAmount;
-      }, 0);
-    }, 0);
-
-    // Total payment including additional charges
-    const totalPayment = totalMinimumPayment + totalAdditionalCharges;
-
     // Use the earliest loan start date as reference
     const earliestStartDate = state.loans.length > 0
       ? state.loans.reduce((earliest, loan) =>
@@ -161,8 +148,6 @@ export function useCalculator() {
     return {
       totalAmount,
       totalMinimumPayment,
-      totalAdditionalCharges,
-      totalPayment,
       earliestStartDate
     };
   }, [state.loans]);
