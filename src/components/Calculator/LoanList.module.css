@@ -65,6 +65,140 @@
   text-align: right;
 }
 
+.paymentBreakdown {
+  font-size: var(--text-xs);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin-top: 0.25rem;
+}
+
+.breakdownItem {
+  line-height: 1.2;
+}
+
+.chargesSection {
+  grid-column: 1 / -1;
+  padding: 0 var(--spacing-md) var(--spacing-md);
+}
+
+.chargesList {
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.chargesHeader {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.chargeRow {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+}
+
+.chargeRow:last-child {
+  margin-bottom: 0;
+}
+
+.chargeInput {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  font-weight: 600;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: white;
+  color: var(--color-text-primary);
+  flex: 1;
+  max-width: 150px;
+}
+
+.chargeInput:focus {
+  outline: none;
+  border-color: var(--color-pastel-blue);
+}
+
+.chargeFrequency {
+  display: flex;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.frequencyBtn {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-right: 1px solid var(--color-border);
+}
+
+.frequencyBtn:last-child {
+  border-right: none;
+}
+
+.frequencyBtn.active {
+  background: var(--color-pastel-blue);
+  color: white;
+}
+
+.frequencyBtn:hover:not(.active) {
+  background: var(--color-background);
+}
+
+.removeChargeBtn {
+  font-size: 1.5rem;
+  font-weight: 400;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.removeChargeBtn:hover {
+  border-color: var(--color-negative);
+  color: var(--color-negative);
+  background: transparent;
+}
+
+.addChargeButton {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.addChargeButton:hover {
+  border-color: var(--color-pastel-blue);
+  color: var(--color-text-primary);
+  background: var(--color-background);
+}
+
 .termWrapper {
   display: flex;
   gap: var(--spacing-xs);
