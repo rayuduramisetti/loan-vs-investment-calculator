@@ -63,8 +63,8 @@ export function InvestmentList({
 
   const formatCurrency = (value) => {
     return new Intl.NumberFormat('en-US', {
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
     }).format(value);
   };
 
