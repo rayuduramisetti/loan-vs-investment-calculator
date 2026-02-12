@@ -1,0 +1,29 @@
+.header {
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-sm);
+  margin-bottom: 0;
+}
+
+.title {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: var(--text-3xl);
+  }
+
+  .subtitle {
+    font-size: var(--text-base);
+  }
+}

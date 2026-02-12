@@ -1,0 +1,28 @@
+.chartHeader {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-primary);
+}
+
+.tooltip {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+}
+
+.tooltipLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.tooltipValue {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  margin: 0.25rem 0;
+}
