@@ -11,6 +11,18 @@ export function LoanList({
     e.target.select();
   };
 
+  const handlePaste = (e, loanId, field) => {
+    e.preventDefault();
+    const pastedText = e.clipboardData.getData('text');
+    // Remove commas and parse as number
+    const cleanedValue = pastedText.replace(/,/g, '');
+    const numValue = parseFloat(cleanedValue);
+
+    if (!isNaN(numValue)) {
+      onUpdateLoan(loanId, { [field]: numValue });
+    }
+  };
+
   const getMinimumPayment = (loan) => {
     if (!loan.amount || !loan.loanTerm) return 0;
     const termInMonths = loan.termUnit === 'years' ? loan.loanTerm * 12 : loan.loanTerm;
@@ -47,6 +59,7 @@ export function LoanList({
               value={loan.amount || ''}
               onChange={(e) => onUpdateLoan(loan.id, { amount: Number(e.target.value) || 0 })}
               onFocus={handleFocus}
+              onPaste={(e) => handlePaste(e, loan.id, 'amount')}
               min="0"
               step="1000"
               placeholder="100000"
@@ -60,6 +73,7 @@ export function LoanList({
               value={loan.interestRate || ''}
               onChange={(e) => onUpdateLoan(loan.id, { interestRate: Number(e.target.value) || 0 })}
               onFocus={handleFocus}
+              onPaste={(e) => handlePaste(e, loan.id, 'interestRate')}
               min="0"
               max="100"
               step="0.1"

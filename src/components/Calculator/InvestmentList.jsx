@@ -11,6 +11,18 @@ export function InvestmentList({
     e.target.select();
   };
 
+  const handlePaste = (e, investmentId, field) => {
+    e.preventDefault();
+    const pastedText = e.clipboardData.getData('text');
+    // Remove commas and parse as number
+    const cleanedValue = pastedText.replace(/,/g, '');
+    const numValue = parseFloat(cleanedValue);
+
+    if (!isNaN(numValue)) {
+      onUpdateInvestment(investmentId, { [field]: numValue });
+    }
+  };
+
   // Calculate duration in months between two dates
   const getMonthsDuration = (fromDate, toDate) => {
     if (!fromDate || !toDate) return 0;
@@ -157,6 +169,7 @@ export function InvestmentList({
               value={investment.amount || ''}
               onChange={(e) => onUpdateInvestment(investment.id, { amount: Number(e.target.value) || 0 })}
               onFocus={handleFocus}
+              onPaste={(e) => handlePaste(e, investment.id, 'amount')}
               min="0"
               step="1000"
               placeholder="10000"
@@ -170,6 +183,7 @@ export function InvestmentList({
               value={investment.apr || ''}
               onChange={(e) => onUpdateInvestment(investment.id, { apr: Number(e.target.value) || 0 })}
               onFocus={handleFocus}
+              onPaste={(e) => handlePaste(e, investment.id, 'apr')}
               min="0"
               max="100"
               step="0.1"
