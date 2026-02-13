@@ -5,32 +5,35 @@
 }
 
 .header {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr 1fr 1.2fr auto;
-  gap: var(--spacing-md);
-  padding-bottom: var(--spacing-sm);
-  border-bottom: 2px solid var(--color-border);
-}
-
-.headerLabel {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0 var(--spacing-md);
+  display: none;
 }
 
 .loanRow {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr 1fr 1.2fr auto;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr 1.2fr 60px;
   gap: var(--spacing-md);
-  align-items: center;
+  align-items: start;
+  padding: var(--spacing-md);
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-md);
 }
 
 .inputGroup {
   display: flex;
   flex-direction: column;
+}
+
+.inputGroup[data-label]::before {
+  content: attr(data-label);
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-xs);
+  padding-left: var(--spacing-xs);
 }
 
 .input {
@@ -62,7 +65,7 @@
   font-weight: 600;
   color: var(--color-text-primary);
   padding: var(--spacing-sm) var(--spacing-md);
-  text-align: right;
+  text-align: left;
 }
 
 .paymentBreakdown {
@@ -260,16 +263,22 @@
 
 .removeButton {
   font-family: var(--font-sans);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 1.5rem;
+  font-weight: 400;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
   border: 2px solid var(--color-negative);
   border-radius: var(--radius-md);
   background: transparent;
   color: var(--color-negative);
   cursor: pointer;
   transition: all 0.2s ease;
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  margin-top: calc(var(--text-xs) + var(--spacing-xs));
 }
 
 .removeButton:hover:not(:disabled) {
@@ -278,8 +287,10 @@
 }
 
 .removeButton:disabled {
-  opacity: 0.4;
+  opacity: 0.3;
   cursor: not-allowed;
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
 }
 
 .addButton {
@@ -330,18 +341,56 @@
   color: var(--color-text-primary);
 }
 
-@media (max-width: 768px) {
-  .header,
+@media (max-width: 1024px) {
   .loanRow {
     grid-template-columns: 1fr;
+    align-items: stretch;
     gap: var(--spacing-sm);
-  }
-
-  .header {
-    display: none;
   }
 
   .removeButton {
     width: 100%;
+    margin-top: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  .input,
+  .termInput {
+    font-size: var(--text-base);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .minPayment {
+    font-size: var(--text-base);
+  }
+
+  .loanRow {
+    padding: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .loanRow {
+    padding: var(--spacing-sm);
+  }
+
+  .input,
+  .termInput {
+    font-size: var(--text-sm);
+  }
+
+  .minPayment {
+    font-size: var(--text-sm);
+  }
+
+  .termButton {
+    padding: var(--spacing-xs);
+    font-size: var(--text-xs);
+  }
+
+  .removeButton {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--text-sm);
   }
 }

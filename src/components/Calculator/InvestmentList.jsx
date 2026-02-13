@@ -98,7 +98,7 @@ export function InvestmentList({
 
       {investments.map((investment) => (
         <div key={investment.id} className={styles.investmentRow}>
-          <div className={styles.inputGroup}>
+          <div className={styles.inputGroup} data-label="Type">
             <div className={styles.typeWrapper}>
               <select
                 className={styles.typeSelect}
@@ -129,7 +129,7 @@ export function InvestmentList({
             </div>
           </div>
 
-          <div className={styles.inputGroup}>
+          <div className={styles.inputGroup} data-label="From Date">
             <input
               type="date"
               className={styles.input}
@@ -140,7 +140,7 @@ export function InvestmentList({
             />
           </div>
 
-          <div className={styles.inputGroup}>
+          <div className={styles.inputGroup} data-label="To Date">
             <input
               type="date"
               className={styles.input}
@@ -150,19 +150,21 @@ export function InvestmentList({
             />
           </div>
 
-          <div className={styles.duration}>
-            {(() => {
-              const duration = formatDuration(getMonthsDuration(investment.fromDate, investment.toDate));
-              return (
-                <>
-                  {duration.years && <div>{duration.years}</div>}
-                  {duration.months && <div>{duration.months}</div>}
-                </>
-              );
-            })()}
+          <div className={styles.inputGroup} data-label="Duration">
+            <div className={styles.duration}>
+              {(() => {
+                const duration = formatDuration(getMonthsDuration(investment.fromDate, investment.toDate));
+                return (
+                  <>
+                    {duration.years && <div>{duration.years}</div>}
+                    {duration.months && <div>{duration.months}</div>}
+                  </>
+                );
+              })()}
+            </div>
           </div>
 
-          <div className={styles.inputGroup}>
+          <div className={styles.inputGroup} data-label="Amount">
             <input
               type="number"
               className={styles.input}
@@ -176,7 +178,7 @@ export function InvestmentList({
             />
           </div>
 
-          <div className={styles.inputGroup}>
+          <div className={styles.inputGroup} data-label="APR %">
             <input
               type="number"
               className={styles.input}
@@ -191,8 +193,10 @@ export function InvestmentList({
             />
           </div>
 
-          <div className={styles.finalValue}>
-            {formatCurrency(calculateFinalValue(investment))}
+          <div className={styles.inputGroup} data-label="Final Value">
+            <div className={styles.finalValue}>
+              {formatCurrency(calculateFinalValue(investment))}
+            </div>
           </div>
 
           <button
@@ -200,8 +204,9 @@ export function InvestmentList({
             className={styles.removeButton}
             onClick={() => onRemoveInvestment(investment.id)}
             disabled={investments.length === 1}
+            title="Remove investment"
           >
-            Remove
+            ×
           </button>
         </div>
       ))}

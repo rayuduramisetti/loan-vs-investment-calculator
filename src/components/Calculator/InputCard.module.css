@@ -256,4 +256,78 @@
   .sectionsContainer {
     gap: var(--spacing-sm);
   }
+
+  .sectionTitle {
+    font-size: var(--text-xl);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .input,
+  .select {
+    font-size: var(--text-lg);
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .prefix,
+  .suffix {
+    font-size: var(--text-lg);
+  }
+
+  .infoValue,
+  .summaryValue {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: var(--text-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .label {
+    font-size: var(--text-xs);
+  }
+
+  .input,
+  .select {
+    font-size: var(--text-base);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .inputWrapper .input {
+    padding-left: 2rem;
+  }
+
+  .inputWrapper .input:has(+ .suffix) {
+    padding-right: 2rem;
+  }
+
+  .prefix,
+  .suffix {
+    font-size: var(--text-base);
+  }
+
+  .prefix {
+    left: var(--spacing-sm);
+  }
+
+  .suffix {
+    right: var(--spacing-sm);
+  }
+
+  .termButton {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--text-xs);
+  }
+
+  .infoValue,
+  .summaryValue {
+    font-size: var(--text-base);
+  }
+
+  .infoLabel,
+  .summaryLabel {
+    font-size: var(--text-sm);
+  }
 }

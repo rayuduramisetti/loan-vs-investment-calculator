@@ -124,7 +124,59 @@
     grid-template-columns: 1fr;
   }
 
+  .scenarioTitle {
+    font-size: var(--text-xl);
+  }
+
   .metricValue {
     font-size: var(--text-lg);
+  }
+
+  .recommendationTitle {
+    font-size: var(--text-xl);
+  }
+
+  .recommendationText {
+    font-size: var(--text-base);
+  }
+
+  .highlight {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .scenarioTitle {
+    font-size: var(--text-lg);
+  }
+
+  .scenarioDesc {
+    font-size: var(--text-xs);
+  }
+
+  .badge {
+    font-size: 0.5rem;
+    padding: 0.1rem 0.4rem;
+  }
+
+  .metricLabel {
+    font-size: var(--text-xs);
+  }
+
+  .metricValue {
+    font-size: var(--text-base);
+  }
+
+  .recommendationTitle {
+    font-size: var(--text-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .recommendationText {
+    font-size: var(--text-sm);
+  }
+
+  .highlight {
+    font-size: var(--text-base);
   }
 }

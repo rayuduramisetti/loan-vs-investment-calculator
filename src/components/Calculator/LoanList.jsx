@@ -52,7 +52,7 @@ export function LoanList({
 
       {loans.map((loan) => (
         <div key={loan.id} className={styles.loanRow}>
-          <div className={styles.inputGroup}>
+          <div className={styles.inputGroup} data-label="Amount">
             <input
               type="number"
               className={styles.input}
@@ -66,7 +66,7 @@ export function LoanList({
             />
           </div>
 
-          <div className={styles.inputGroup}>
+          <div className={styles.inputGroup} data-label="Interest %">
             <input
               type="number"
               className={styles.input}
@@ -81,7 +81,7 @@ export function LoanList({
             />
           </div>
 
-          <div className={styles.inputGroup}>
+          <div className={styles.inputGroup} data-label="Loan Term">
             <div className={styles.termWrapper}>
               <input
                 type="number"
@@ -112,7 +112,7 @@ export function LoanList({
             </div>
           </div>
 
-          <div className={styles.inputGroup}>
+          <div className={styles.inputGroup} data-label="Start Date">
             <input
               type="date"
               className={styles.input}
@@ -121,8 +121,10 @@ export function LoanList({
             />
           </div>
 
-          <div className={styles.minPayment}>
-            {formatCurrency(getMinimumPayment(loan))}
+          <div className={styles.inputGroup} data-label="Min Payment/mo">
+            <div className={styles.minPayment}>
+              {formatCurrency(getMinimumPayment(loan))}
+            </div>
           </div>
 
           <button
@@ -130,8 +132,9 @@ export function LoanList({
             className={styles.removeButton}
             onClick={() => onRemoveLoan(loan.id)}
             disabled={loans.length === 1}
+            title="Remove loan"
           >
-            Remove
+            ×
           </button>
         </div>
       ))}
