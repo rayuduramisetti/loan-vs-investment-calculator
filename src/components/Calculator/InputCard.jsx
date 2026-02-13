@@ -30,22 +30,13 @@ export function InputCard({
       <Card>
         <h2 className={styles.sectionTitle}>Investment Details</h2>
 
-        <div className={styles.investmentSection}>
-          <div className={styles.investmentsHeader}>
-            <h3 className={styles.subsectionTitle}>Investments</h3>
-            <p className={styles.subsectionDesc}>
-              Add lump sum amounts available at specific dates. We'll compare three scenarios: save it in bank, use it to pay down the loan, or invest it at the specified APR.
-            </p>
-          </div>
-
-          <InvestmentList
-            investments={investments}
-            earliestLoanStartDate={earliestLoanStartDate}
-            onUpdateInvestment={onUpdateInvestment}
-            onRemoveInvestment={onRemoveInvestment}
-            onAddInvestment={onAddInvestment}
-          />
-        </div>
+        <InvestmentList
+          investments={investments}
+          earliestLoanStartDate={earliestLoanStartDate}
+          onUpdateInvestment={onUpdateInvestment}
+          onRemoveInvestment={onRemoveInvestment}
+          onAddInvestment={onAddInvestment}
+        />
       </Card>
     </div>
   );
