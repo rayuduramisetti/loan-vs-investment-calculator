@@ -1,7 +1,7 @@
 .sectionsContainer {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-md);
 }
 
 .sectionTitle {
@@ -254,6 +254,6 @@
   }
 
   .sectionsContainer {
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
   }
 }
